@@ -105,7 +105,22 @@
 		}
 
 		function ChatMessages({chatMessages}){
-
+			if(chatMessages.length === 0){
+				return (
+					<>
+						<div className="welcome-message messages-section">
+							<p>
+							Welcome to My ChatBot Project !! <br />
+							This bot can only : <br />
+							1.Roll a Dice<br />
+							2.Display Todays Date<br/>
+							3.Flip a container
+							</p>
+						</div>
+					</>
+				);
+			}
+			
 			const chatMessagesRef = React.useRef(null);
 
 			React.useEffect(()=>{
@@ -135,26 +150,10 @@
 		}
 
 		function App(){
-			const [chatMessages, setChatMessages] = React.useState([{
-				message:'Hello chatbot',
-				sender:'user',
-				id:'id1'
-			},{
-				message:'Hello! How can I help you?',
-				sender:'robot',
-				id:'id2'
-			},{
-				message:'can you get me todays date?',
-				sender:'user',
-				id:'id3'
-			},{
-				message:'Today is January 27',
-				sender:'robot',
-				id:'id4'
-			}]);
+			const [chatMessages, setChatMessages] = React.useState([]);
 			// const [chatMessages, setChatMessages] = array;
 			// const chatMessages = array[0];
-			// const setChatMessages = array[1];	
+			// const setChatMessages = array[1];
 			return (
 			<div className="app-container">
 				<ChatMessages 

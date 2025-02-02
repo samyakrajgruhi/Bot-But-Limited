@@ -4,6 +4,12 @@ body{
    margin-top:0px;
 }
 
+.welcome-message{
+   color:rgb(92, 92, 92);
+   display: flex;
+   justify-content: center;
+}
+
 .app-container{
    max-width:600px;
    margin-left:auto;
@@ -63,6 +69,8 @@ body{
 
 }
 
+
+
 .chat-message{
    background-color: rgb(238, 238, 238);
    padding:15px 20px;
@@ -75,7 +83,26 @@ body{
    flex-grow:1;
    margin-top:15px;
    margin-bottom:15px;
-
+   justify-content: center;
    overflow:scroll;
    scrollbar-width: none;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+   .app-container {
+       max-width: 100%;
+       padding: 10px;
+   }
+
+   .input-container {
+       flex-direction: column;
+       margin-bottom: 20px;
+   }
+
+   .send-button {
+       margin-left: 0;
+       margin-top: 10px;
+       width: 100%;
+   }
 }
