@@ -107,15 +107,17 @@
 		function ChatMessages({chatMessages}){
 			return (				
 				<>
-					{chatMessages.map((chatMessage)=>{
-						return (
-							<ChatMessage 
-								message={chatMessage.message}
-								sender={chatMessage.sender}
-								key={chatMessage.id}
-							/>
-						);	
-					})}
+					<div className="messages-section">
+						{chatMessages.map((chatMessage)=>{
+							return (
+								<ChatMessage 
+									message={chatMessage.message}
+									sender={chatMessage.sender}
+									key={chatMessage.id}
+								/>
+							);	
+						})}
+					</div>
 				</>
 			);
 		}
@@ -143,16 +145,13 @@
 			// const setChatMessages = array[1];	
 			return (
 			<div className="app-container">
-				
-				<div className="chat-section">
-					<ChatMessages 
-						chatMessages={chatMessages}
-					/>
-					<ChatInput 
+				<ChatMessages 
+					chatMessages={chatMessages}
+				/>
+				<ChatInput 
 					chatMessages={chatMessages}
 					setChatMessages={setChatMessages}
 				/>
-				</div>
 			</div>
 			);
 		}

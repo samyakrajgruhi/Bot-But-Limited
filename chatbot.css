@@ -1,17 +1,22 @@
 body{
    font-family: Robot,Arial;
+   margin-bottom:0px;
+   margin-top:0px;
 }
 
 .app-container{
    max-width:600px;
    margin-left:auto;
    margin-right:auto;
-   position: relative;
+   display:flex;
+   flex-direction: column;
+   column-gap: 10px;
+   height: 100vh;
 }
 
 .input-container{
    display:flex;
-   margin-top:20px;
+   margin-bottom:30px;
 }
 
 .send-button{
@@ -38,11 +43,6 @@ body{
    flex-grow: 1;
 }
 
-.chat-section{
-   display:flex;
-   flex-direction: column;
-}
-
 .chat-message-user-icon{
    width:50px;
 }
@@ -51,8 +51,8 @@ body{
    display:flex;
    justify-content: end;
    align-items: center;
-   column-gap: 10px;
-   margin-top:15px;
+   column-gap:10px;
+
 }
 
 .robot-message{
@@ -60,7 +60,7 @@ body{
    justify-content: start;
    align-items: center;
    column-gap:10px;
-   margin-top:15px;
+
 }
 
 .chat-message{
@@ -69,4 +69,13 @@ body{
    border-radius:10px;
    max-width: 300px;
    overflow-wrap: break-word;
+}
+
+.messages-section{
+   flex-grow:1;
+   margin-top:15px;
+   margin-bottom:15px;
+
+   overflow:scroll;
+   scrollbar-width: none;
 }
