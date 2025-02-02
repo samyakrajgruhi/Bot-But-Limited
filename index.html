@@ -61,7 +61,7 @@
 				// This is to display "Loading..." while the bot is thinking what to respons...
 				setChatMessages([
 					...newChatMessages,{
-						message: 'Loading...',
+						message: <img className="loading-image" src="/images/loading-spinner.gif"/>,
 						sender:'robot',
 						id: crypto.randomUUID()
 					}
@@ -104,6 +104,19 @@
 			);
 		}
 
+		function useAutoScroll(dependencies){
+			const chatMessagesRef = React.useRef(null);
+
+			React.useEffect(()=>{
+				const containerElem = chatMessagesRef.current;
+				if(containerElem){
+					containerElem.scrollTop = containerElem.scrollHeight;
+				}
+			},dependencies);
+
+			return chatMessagesRef;
+		}
+
 		function ChatMessages({chatMessages}){
 			if(chatMessages.length === 0){
 				return (
@@ -121,19 +134,12 @@
 				);
 			}
 			
-			const chatMessagesRef = React.useRef(null);
-
-			React.useEffect(()=>{
-				const containerElem = chatMessagesRef.current;
-				if(containerElem){
-					containerElem.scrollTop = containerElem.scrollHeight;
-				}
-			},[chatMessages]);
+			
 			return (				
 				<>
 					<div 
 						className="messages-section"
-						ref={chatMessagesRef}
+						ref={useAutoScroll([chatMessages])}
 					>
 						{chatMessages.map((chatMessage)=>{
 							return (

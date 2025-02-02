@@ -89,7 +89,11 @@ body{
    justify-content: start;
    align-items: center;
    column-gap:10px;
+}
 
+.loading-image{
+   height: 40px;
+   margin:-15px;
 }
 
 
